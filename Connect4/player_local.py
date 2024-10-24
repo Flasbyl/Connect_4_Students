@@ -56,14 +56,29 @@ class Player_Local(Player):
         raise NotImplementedError(f"You need to write this code first")
 
     def make_move(self) -> int:
+
         """ 
         Prompt the physical player to enter a move via the console.
 
         Returns:
             int: The column chosen by the player for the move.
         """
-        # TODO
-        raise NotImplementedError(f"You need to write this code first")
+
+        print("It's your turn, which column do you select? [1-8]")
+
+        while True:
+            try:
+                move = int(input())  # Convert input to integer
+                if 1 <= move <= 8:  # Check if move is within the valid range [1-8]
+                    break
+                else:
+                    print('Invalid input! Please enter a number between 1 and 8.')
+            except ValueError:
+                print('Invalid input! Please enter a number between 1 and 8.')
+
+        return(move)
+
+
 
     def visualize(self) -> None:
         """
