@@ -21,17 +21,12 @@ class Connect4:
             -> executes the methods of a Game object
     """
     
-    def __init__(self) -> None:
-        """ 
-        Init a Connect 4 Game
-            - Create an empty Board
-            - Create to (non - registered and empty) players.
-            - Set the Turn Counter to 0
-            - Set the Winner to False
-            - etc.
-        """
-       # TODO
-        raise NotImplementedError(f"You need to write this code first")
+    def __init__(self, board) -> None:
+        self.board = np.full((7, 8), " ")
+        self.players = [None, None]
+        self.turn = [0]
+        self.winner = False
+
 
     """
     Methods to be exposed to the API later on
