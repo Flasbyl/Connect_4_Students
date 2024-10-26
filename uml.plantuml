@@ -58,7 +58,7 @@ package __init__ {
             }
 
             class update_status(C4) {
-                update akk vakues for status atfer each succesful move {abstract}
+                update all values for status atfer each succesful move {abstract}
                 ----
                 active_player
                 active_ID
@@ -124,7 +124,7 @@ package __init__ {
             }
 
             class is_my_turn(ABS) {
-                check if it is okayers turn {abstract}
+                check if it is players turn {abstract}
                 ----
             }
 

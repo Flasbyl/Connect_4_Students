@@ -22,7 +22,7 @@ class Connect4:
     """
     
     def __init__(self, board) -> None:
-        self.board = np.full((7, 8), " ")
+        self.board = np.full((Player.board_height, Player.board_width), " ")
         self.players = [None, None]
         self.turn = [0]
         self.winner = False
