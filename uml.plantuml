@@ -17,16 +17,17 @@ end legend
 package __init__ {
     package game {
         package Connect4 {
-            class init(C4) {
+            class init_C4 {
                 methods to be exposed to API {abstract}
                 ----
                 board
                 players
                 turn
                 winner
+                + done
             }
 
-            class get_status(C4) {
+            class get_status_C4 {
                 get statuses {abstract}
                 ----
                 active_player
@@ -34,7 +35,7 @@ package __init__ {
                 turn_count
             }
 
-            class register_player(C4) {
+            class register_player_C4 {
                 register player{abstract}
                 ----
                 player_icon
@@ -42,22 +43,24 @@ package __init__ {
                 player_UUID
             }
 
-            class get_board(C4) {
+            class get_board_C4 {
                 return current board state{abstract}
                 ----
                 current_board_state
             }
 
-            class check_move(C4) {
+            class check_move_C4 {
                 check move of certain player is legal: if yes: request move{abstract}
                 ----
                 move_legal
                 ====
                 column
                 player
+
+                + done?
             }
 
-            class update_status(C4) {
+            class update_status_C4 {
                 update all values for status atfer each succesful move {abstract}
                 ----
                 active_player
@@ -66,42 +69,51 @@ package __init__ {
                 turn_number
             }
 
-            class detetct_win(C4) {
+            class detetct_win_C4 {
                 detect if someone has won the game{abstract}
                 ----
             }
+        detetct_win_C4 --> get_status_C4
+
+        get_status_C4 <-- update_status_C4
+
+        get_game_status_PL --> get_status_C4
+
+        register_player_C4 --> init_C4
         }
     }
 
     package player_local {
         package Player_Local {
-            class init(PL) {
-                Super_init (player)
+            class init_PL {
+                Super_init _player
                 ====
                 game
             }
 
-            class register_game(PL) {
+            class register_game_PL {
                 Register the player in the game and assign the player an icon. {abstract}
             }
 
-            class is_my_tunr(PL) {
+            class is_my_tunr_PL {
                 Check if it is the player's turn. {abstract}
             }
 
-            class get_game_status(PL) {
+            class get_game_status_PL {
                         Get the game's current status. who is the active player? is there a winner? if so who? what turn is it? {abstract}
             }
 
-            class make_move(PL) {
+            class make_move_PL {
                 Prompt the physical player to enter a move via the console. {abstract}
+                + done
             }
 
-            class visualise(PL) {
+            class visualise_PL {
                 Visualize the current state of the Connect 4 board by printing it to the console. {abstract}
+                + done
             }
 
-            class celebrate_win(PL) {
+            class celebrate_win_PL {
                 Celebration of Local CLI Player {abstract}
             }
 
@@ -111,39 +123,39 @@ package __init__ {
 
     package player {
         package Player {
-            class init(ABS) {
+            class init_ABS {
                 id
                 icon
                 board_width
                 board_height
             }
 
-            class register_in_game(ABS) {
+            class register_in_game_ABS {
                 register player in game, assign icon {abstract}
                 ----
             }
 
-            class is_my_turn(ABS) {
+            class is_my_turn_ABS {
                 check if it is players turn {abstract}
                 ----
             }
 
-            class get_game_status(ABS) {
+            class get_game_status_ABS {
                 get game status: acative player, if winner: who, turn nunmber {abstract}
                 ----
             }
 
-            class make_move(ABS) {
+            class make_move_ABS {
                 prompt player to take move {abstract}
                 ----
             }
 
-            class visualise(ABS) {
+            class visualise_ABS {
                 visualise current board state {abstract}
                 ----
             }
 
-            class celebrate_win(ABS) {
+            class celebrate_win_ABS {
                 visualise the win {abstract}
                 ----
             }
@@ -166,7 +178,7 @@ package __init__ {
 
     package coordinator {
         package Coordinator_Local {
-            class init(Coord) {
+            class init_Coord {
             initialse Coordinator_Local with a Game and 2 players {abstract}
             ----
             }
@@ -178,5 +190,7 @@ package __init__ {
         }
     }
 }
+
+
 
 @enduml

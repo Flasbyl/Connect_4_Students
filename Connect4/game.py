@@ -21,11 +21,12 @@ class Connect4:
             -> executes the methods of a Game object
     """
     
-    def __init__(self, board) -> None:
+    def __init__(self) -> None:
         self.board = np.full((Player.board_height, Player.board_width), " ")
         self.players = [None, None]
         self.turn = [0]
         self.winner = False
+        self.active_player = None
 
 
     """
@@ -63,6 +64,7 @@ class Connect4:
         Returns:
             board
         """
+        return self.board
         # TODO
         raise NotImplementedError(f"You need to write this code first")
 
