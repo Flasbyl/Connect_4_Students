@@ -3,7 +3,7 @@
 package __init__ {
     package game {
         package Connect4 {
-            class init {
+            class init(C4) {
                 methods to be exposed to API {abstract}
                 ----
                 board
@@ -11,7 +11,7 @@ package __init__ {
                 turn
                 winner
                 }
-            class get_status {
+            class get_status(C4) {
                 get statuses {abstract}
                 ----
                 active_player
@@ -19,7 +19,7 @@ package __init__ {
                 turn_count
                 }
 
-            class register_player {
+            class register_player(C4) {
                 register player{abstract}
                 ----
                 player_icon
@@ -27,13 +27,13 @@ package __init__ {
                 player_UUID
                 }
 
-            class get_board {
+            class get_board(C4) {
                 return current board state{abstract}
                 ----
                 current_board_state
                 }
 
-            class check_move {
+            class check_move(C4) {
                 check move of certain player is legal: if yes: request move{abstract}
                 ----
                 move_legal
@@ -42,7 +42,7 @@ package __init__ {
                 player
                 }
 
-            class update_status {
+            class update_status(C4) {
                 update akk vakues for status atfer each succesful move {abstract}
                 ----
                 active_player
@@ -51,7 +51,7 @@ package __init__ {
                 turn_number
                 }
 
-            class detetct_win {
+            class detetct_win(C4) {
                 detect if someone has won the game{abstract}
                 ----
                 }
@@ -60,19 +60,19 @@ package __init__ {
 
     package player_local {
         package Player_Local {
-            class init {
+            class init(PL) {
                 Super_init (player)
                 ====
                 game
                 }
 
-            class register_game {
+            class register_game(PL) {
                 }
-            class is_my_tunr {}
-            class get_game_status {}
-            class make_move {}
-            class visualise {}
-            class celebrate_win {}
+            class is_my_tunr(PL) {}
+            class get_game_status(PL) {}
+            class make_move(PL) {}
+            class visualise(PL) {}
+            class celebrate_win(PL) {}
 
             }
         }
@@ -80,33 +80,33 @@ package __init__ {
 
     package player {
         package Player {
-            class init {
+            class init(ABS) {
                 id
                 icon
                 board_width
                 board_height
                 }
-                class register_in_game {
-                    register player in game, assign icon {abstract}
-                    ----
-                    }
-            class is_my_turn {
+            class register_in_game(ABS) {
+                register player in game, assign icon {abstract}
+                ----
+                }
+            class is_my_turn(ABS) {
                 check if it is okayers turn {abstract}
                 ----
                 }
-            class get_game_status {
+            class get_game_status(ABS) {
                 get game status: acative player, if winner: who, turn nunmber {abstract}
                 ----
                 }
-            class make_move {
+            class make_move(ABS) {
                 prompt player to take move {abstract}
                 ----
                 }
-            class visualise {
+            class visualise(ABS) {
                 visualise current board state {abstract}
                 ----
                 }
-            class celebrate_win {
+            class celebrate_win(ABS) {
                 visualise the win {abstract}
                 ----
                 }
@@ -129,7 +129,7 @@ package __init__ {
 
     package coordinator {
         package Coordinator_Local {
-            class init {
+            class init(Coord) {
             initialse Coordinator_Local with a Game and 2 players {abstract}
             ----
                 }
