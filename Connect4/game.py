@@ -76,8 +76,11 @@ class Connect4:
             col (int):      Selected Column of Coin Drop
             player (str):   Player ID 
         """
-        # TODO
-        raise NotImplementedError(f"You need to write this code first")
+                
+        if self.get_board()[0,column] == ' ':
+            return(True)
+        else:
+            return(False)
         
     """ 
     Internal Method (for Game Logic)

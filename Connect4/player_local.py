@@ -64,17 +64,22 @@ class Player_Local(Player):
             int: The column chosen by the player for the move.
         """
 
-        print("It's your turn, which column do you select? [1-8]")
+        print("It's your turn, which column do you select? [0-7]")
 
         while True:
             try:
                 move = int(input())  # Convert input to integer
-                if 1 <= move <= 8:  # Check if move is within the valid range [1-8]
+                if 0 <= move <= 7:  # Check if move is within the valid range [0-7]
                     break
                 else:
-                    print('Invalid input! Please enter a number between 1 and 8.')
+                    print('Invalid input! Please enter a number between 0 and 7.')
+                    
+                if Connect4.check_move(move):
+                    break
+                else:
+                    print('Invalid move!')
             except ValueError:
-                print('Invalid input! Please enter a number between 1 and 8.')
+                print('Invalid input! Please enter a number between 0 and 7.')
 
         return(move)
 
@@ -84,8 +89,22 @@ class Player_Local(Player):
         """
         Visualize the current state of the Connect 4 board by printing it to the console.
         """
-        # TODO
-        raise NotImplementedError(f"You need to write this code first")
+        board = Connect4.get_board()
+        
+        print('│  0  │  1  │  2  │  3  │  4  │  5  │  6  │  7  │')
+        
+        print('╔═════╦═════╦═════╦═════╦═════╦═════╦═════╦═════╗')
+
+        for i in range(13):
+            if i % 2:
+                print('╠═════╬═════╬═════╬═════╬═════╬═════╬═════╬═════╣')
+            
+            else:
+                for j in range(8):
+                    print(f'║  {board[int(i/2) ,j]}  ', end ='')
+                print('║')
+                
+        print('╚═════╩═════╩═════╩═════╩═════╩═════╩═════╩═════╝')
 
 
     def celebrate_win(self) -> None:
