@@ -1,5 +1,8 @@
 @startuml
 
+skinparam linetype polyline
+skinparam groupInhertance 2
+
 legend
 Classes as follows:
 
@@ -189,6 +192,13 @@ package __init__ {
             }
         }
     }
+    register_game_PL <---> play 
+    make_move_PL <--> play
+    is_my_tunr_PL <--> play
+    visualise_PL <--> play
+    celebrate_win_PL <--> play
+    play <---> register_player_C4
+
 }
 
 
