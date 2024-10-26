@@ -24,14 +24,15 @@ package __init__ {
                 players
                 turn
                 winner
-                }
+            }
+
             class get_status(C4) {
                 get statuses {abstract}
                 ----
                 active_player
                 winner_check
                 turn_count
-                }
+            }
 
             class register_player(C4) {
                 register player{abstract}
@@ -39,13 +40,13 @@ package __init__ {
                 player_icon
                 ====
                 player_UUID
-                }
+            }
 
             class get_board(C4) {
                 return current board state{abstract}
                 ----
                 current_board_state
-                }
+            }
 
             class check_move(C4) {
                 check move of certain player is legal: if yes: request move{abstract}
@@ -54,7 +55,7 @@ package __init__ {
                 ====
                 column
                 player
-                }
+            }
 
             class update_status(C4) {
                 update akk vakues for status atfer each succesful move {abstract}
@@ -63,14 +64,14 @@ package __init__ {
                 active_ID
                 winner
                 turn_number
-                }
+            }
 
             class detetct_win(C4) {
                 detect if someone has won the game{abstract}
                 ----
-                }
             }
         }
+    }
 
     package player_local {
         package Player_Local {
@@ -78,18 +79,34 @@ package __init__ {
                 Super_init (player)
                 ====
                 game
-                }
+            }
 
             class register_game(PL) {
-                }
-            class is_my_tunr(PL) {}
-            class get_game_status(PL) {}
-            class make_move(PL) {}
-            class visualise(PL) {}
-            class celebrate_win(PL) {}
-
+                Register the player in the game and assign the player an icon. {abstract}
             }
+
+            class is_my_tunr(PL) {
+                Check if it is the player's turn. {abstract}
+            }
+
+            class get_game_status(PL) {
+                        Get the game's current status. who is the active player? is there a winner? if so who? what turn is it? {abstract}
+            }
+
+            class make_move(PL) {
+                Prompt the physical player to enter a move via the console. {abstract}
+            }
+
+            class visualise(PL) {
+                Visualize the current state of the Connect 4 board by printing it to the console. {abstract}
+            }
+
+            class celebrate_win(PL) {
+                Celebration of Local CLI Player {abstract}
+            }
+
         }
+    }
     
 
     package player {
@@ -99,33 +116,39 @@ package __init__ {
                 icon
                 board_width
                 board_height
-                }
+            }
+
             class register_in_game(ABS) {
                 register player in game, assign icon {abstract}
                 ----
-                }
+            }
+
             class is_my_turn(ABS) {
                 check if it is okayers turn {abstract}
                 ----
-                }
+            }
+
             class get_game_status(ABS) {
                 get game status: acative player, if winner: who, turn nunmber {abstract}
                 ----
-                }
+            }
+
             class make_move(ABS) {
                 prompt player to take move {abstract}
                 ----
-                }
+            }
+
             class visualise(ABS) {
                 visualise current board state {abstract}
                 ----
-                }
+            }
+
             class celebrate_win(ABS) {
                 visualise the win {abstract}
                 ----
-                }
             }
         }
+    }
 
     package setup {
         package Setup {
@@ -137,22 +160,23 @@ package __init__ {
                 packages
                 install_requires
                 python_requires
-                }
             }
         }
+    }
 
     package coordinator {
         package Coordinator_Local {
             class init(Coord) {
             initialse Coordinator_Local with a Game and 2 players {abstract}
             ----
-                }
+            }
+
             class play {
                 handles: player registration, turn managment, winner checking {abstract}
                 ----
-                }
             }
         }
     }
+}
 
 @enduml
