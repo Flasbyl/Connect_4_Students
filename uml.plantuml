@@ -1,0 +1,156 @@
+@startuml
+
+package __init__{
+
+package game.Connect4 {
+
+class init
+{
+methods to be exposed to API {abstract}
+----
+board
+players
+turn
+winner
+}
+
+class get_status
+{
+get statuses {abstract}
+----
+active_player
+winner_check
+turn_count
+}
+
+class register_player
+{
+register player{abstract}
+----
+player_icon
+====
+player_UUID
+}
+
+class get_board
+{
+return current board state{abstract}
+----
+current_board_state
+}
+
+class check_move
+{
+check move of certain player is legal: if yes: request move{abstract}
+----
+move_legal
+====
+column
+player
+}
+
+class update_status
+{
+update akk vakues for status atfer each succesful move {abstract}
+----
+active_player
+active_ID
+winner
+turn_number
+}
+
+class detetct_win
+{
+detect if someone has won the game{abstract}
+----
+}
+}
+
+
+package player_local.Player_Local {
+
+class init
+{
+Super_init (player)
+====
+game
+}
+
+class register_game{
+
+}
+class is_my_tunr{}
+class get_game_status{}
+class make_move{}
+class visualise{}
+class celebrate_win{}
+
+}
+
+package player.Player{
+
+class init {
+id
+icon
+board_width
+board_height
+}
+class register_in_game {
+register player in game, assign icon {abstract}
+----
+
+}
+class is_my_turn {
+check if it is okayers turn {abstract}
+----
+
+}
+class get_game_status {
+get game status: acative player, if winner: who, turn nunmber {abstract}
+----
+
+}
+class make_move {
+prompt player to take move {abstract}
+----
+
+}
+class visualise {
+visualise current board state {abstract}
+----
+
+}
+class celebrate_win {
+visualise the win {abstract}
+----
+
+}
+}
+
+package setup.setup {
+class setup {
+installation of all required packes to Connect4 {abstract}
+----
+name
+version
+packages
+install_requires
+python_requires
+}
+}
+
+package coordinator.Coordinator_Local {
+class init {
+initialse Coordinator_Local with a Game and 2 players {abstract}
+----
+
+}
+class play {
+handles: player registration, turn managment, winner checking {abstract}
+----
+
+}
+}
+}
+
+@enduml
