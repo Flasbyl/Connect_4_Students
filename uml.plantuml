@@ -77,7 +77,7 @@ package __init__ {
                 ----
                 + done
             }
-        detetct_win_C4 --> get_status_C4
+        detetct_win_C4 --> get_status_C4 :True/False
 
         get_status_C4 <-- update_status_C4
 
