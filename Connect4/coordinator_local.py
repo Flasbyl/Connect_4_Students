@@ -1,7 +1,7 @@
 
 
 from game import Connect4
-from player import Player
+from player_local import Player_Local
 
 
 class Coordinator_Local:
@@ -22,8 +22,10 @@ class Coordinator_Local:
         """
         Initialize the Coordinator_Local with a Game and 2 Players
         """
-        # TODO
-        raise NotImplementedError(f"You need to write this code first")
+        
+        player1 = Player_Local()
+        player2 = Player_Local()
+        game = Connect4()
     
 
     def play(self):
@@ -33,13 +35,10 @@ class Coordinator_Local:
             This method handles player registration, turn management, 
             and checking for a winner until the game concludes.
         """
-        # TODO
-        raise NotImplementedError(f"You need to write this code first")
+        print(player1.id)
 
 
 
 if __name__ == "__main__":
-    # Create a coordinator
-    # play a game
-    # TODO
-    raise NotImplementedError(f"You need to write this code first")
+    Game = Coordinator_Local()
+    Game.play(Game)

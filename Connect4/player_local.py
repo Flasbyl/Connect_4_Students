@@ -22,7 +22,7 @@ class Player_Local(Player):
         super().__init__()  # Initialize id and icon from the abstract Player class
 
        # TODO
-        raise NotImplementedError(f"You need to write this code first")
+        #raise NotImplementedError(f"You need to write this code first")
 
     def register_in_game(self) -> str:
         """
@@ -74,7 +74,7 @@ class Player_Local(Player):
                 else:
                     print('Invalid input! Please enter a number between 0 and 7.')
                     
-                if Connect4.check_move(move):
+                if Connect4.check_move(move, self.id):
                     break
                 else:
                     print('Invalid move!')
