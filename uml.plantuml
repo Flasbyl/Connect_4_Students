@@ -127,7 +127,7 @@ package __init__ {
             }
         }
 
-    package coordinator.Coordinator_Local {
+    package coordinator {
         package Coordinator_Local {
             class init {
             initialse Coordinator_Local with a Game and 2 players {abstract}
