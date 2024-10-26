@@ -75,6 +75,7 @@ package __init__ {
             class detetct_win_C4 {
                 detect if someone has won the game{abstract}
                 ----
+                + done
             }
         detetct_win_C4 --> get_status_C4
 
