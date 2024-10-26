@@ -1,5 +1,19 @@
 @startuml
 
+legend
+Classes as follows:
+
+----
+Name
+----
+description
+----
+"functions"
+====
+parameters
+end legend
+
+
 package __init__ {
     package game {
         package Connect4 {
