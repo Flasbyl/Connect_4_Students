@@ -122,7 +122,7 @@ class Connect4:
         diag_up_group = np.flipud(diag_down_group)  # Bottom-left to top-right
 
         # Check for each player if there's a winning condition
-        for player in [1, 2]:
+        for player in ["X", "O"]:
             player_board = (self.board == player).astype(int)
             print(f"player_{player}'s board:")
             print(player_board)
