@@ -41,7 +41,7 @@ class Connect4:
             - is there a winner? if so who?
             - what turn is it?
         """
-        return self.active_player, winner, turn
+        return self.active_player, self.winner, self.turn
         # TODO
         #raise NotImplementedError(f"You need to write this code first")
 
@@ -123,20 +123,20 @@ class Connect4:
 
         # Check for each player if there's a winning condition
         for player in [1, 2]:
-            player_board = (board == player).astype(int)
+            player_board = (self.board == player).astype(int)
             print(f"player_{player}'s board:")
             print(player_board)
             print('----')
 
             # Check all directions using convolution for 4 in a row
             if (convolve(player_board, horizontal_group, mode="constant", cval=0) == 4).any():
-                return True, player
+                return True
             if (convolve(player_board, vertical_group, mode="constant", cval=0) == 4).any():
-                return True, player
+                return True
             if (convolve(player_board, diag_down_group, mode="constant", cval=0) == 4).any():
-                return True, player
+                return True
             if (convolve(player_board, diag_up_group, mode="constant", cval=0) == 4).any():
-                return True, player
+                return True
 
         # Return False if no win condition is found for either player
         return False
