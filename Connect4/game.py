@@ -23,7 +23,8 @@ class Connect4:
     """
     
     def __init__(self) -> None:
-        self.board = np.full((Player.board_height, Player.board_width), " ")
+        #self.board = np.full((Player.board_height, Player.board_width), " ")
+        self.board = np.full((7, 8), " ")
         self.players = [None, None]
         self.turn = [0]
         self.winner = False
@@ -66,9 +67,10 @@ class Connect4:
         Returns:
             board
         """
+        
         return self.board
         # TODO
-        raise NotImplementedError(f"You need to write this code first")
+        #raise NotImplementedError(f"You need to write this code first")
 
 
     def check_move(self, column:int, player_Id:uuid.UUID) -> bool:

@@ -22,10 +22,12 @@ class Coordinator_Local:
         """
         Initialize the Coordinator_Local with a Game and 2 Players
         """
+        self.game = Connect4()
+
+
+        self.player1 = Player_Local(game=self.game)
+        self.player2 = Player_Local(game=self.game)
         
-        player1 = Player_Local()
-        player2 = Player_Local()
-        game = Connect4()
     
 
     def play(self):
@@ -35,10 +37,13 @@ class Coordinator_Local:
             This method handles player registration, turn management, 
             and checking for a winner until the game concludes.
         """
-        print(player1.id)
+        self.player1.visualize()
+        
+        print('hello')
 
 
 
 if __name__ == "__main__":
     Game = Coordinator_Local()
-    Game.play(Game)
+    Game.play()
+    

@@ -89,7 +89,9 @@ class Player_Local(Player):
         """
         Visualize the current state of the Connect 4 board by printing it to the console.
         """
-        board = Connect4.get_board()
+
+        
+        board = self.game.get_board()
         
         print('│  0  │  1  │  2  │  3  │  4  │  5  │  6  │  7  │')
         
